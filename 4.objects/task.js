@@ -16,10 +16,10 @@ Student.prototype.addMark = function (mark) {
   }
 }
 
-Student.prototype.addMarks = function () {
-  if (arguments.length) {
-    for (i = 0; i < arguments.length; i++) {
-      this.addMark(arguments[i]);
+Student.prototype.addMarks = function (...marks) {
+  if (marks.length) {
+    for (let i = 0; i < marks.length; i++) {
+      this.addMark(marks[i]);
     }
   }
 }
@@ -28,7 +28,7 @@ Student.prototype.getAverage = function () {
   let sum = 0,
       avg = 0;
   if (this.marks !== undefined) {
-    for (i = 0; i < this.marks.length; i++) {
+    for (let i = 0; i < this.marks.length; i++) {
       sum += this.marks[i];
     }
     avg = sum / this.marks.length;
